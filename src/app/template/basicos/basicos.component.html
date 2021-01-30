@@ -1,1 +1,70 @@
-<p>basicos works!</p>
+<h2>Template: Básicos</h2>
+<hr>
+
+<!-- campo de producto -->
+<div class="row">
+  <div class="col">
+
+    <form (submit)="guardar()" #myForm="ngForm">
+      <!-- Producto -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label"> Producto </label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" placeholder="Producto" ngModel name="producto" autocomplete="off"
+            required minlength="3">
+          <span class="form-text text-danger" *ngIf="productoValido()">Debe ser de 3
+            letras</span>
+        </div>
+      </div>
+      <!-- Precio -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label"> Precio </label>
+        <div class="col-sm-9">
+          <input type="number" ngModel name="precio" class="form-control" placeholder="Precio">
+          <span class="form-text text-danger" *ngIf="precioValido()">El precio debe ser superior a 0</span>
+        </div>
+      </div>
+      <!-- Existencias -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label"> Existencias </label>
+        <div class="col-sm-9">
+          <input type="text" ngModel name="existencias" class="form-control" placeholder="Existencias">
+        </div>
+      </div>
+      <!-- button -->
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary float-end" [disabled]="!myForm.valid">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <span>Valid</span>
+    <pre>{{myForm.valid}}</pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <span>Pristine</span>
+    <pre>{{myForm.pristine}}</pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <span>Touch</span>
+    <pre>{{myForm.touched}}</pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <span>Value</span>
+    <pre>{{myForm.value | json}}</pre>
+  </div>
+</div>
