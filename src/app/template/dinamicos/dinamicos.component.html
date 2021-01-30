@@ -1,1 +1,42 @@
-<p>dinamicos works!</p>
+<h2>Template: <small>Dinamicos</small></h2>
+<hr>
+
+<form (ngSubmit)="save()" autocomplete="off" #miFormulario="ngForm">
+
+  <!-- Nombre -->
+  <div class="mb-3 row">
+    <label for="" class="col-sm-3 col-form-label">Nombre</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" ngModel name="nombre" placeholder="nombre de la persona" required>
+      <span class="form-text text-danger"
+        *ngIf="miFormulario.controls.nombre?.errors && miFormulario.controls.nombre?.touched">Este campo es
+        obligatorio</span>
+    </div>
+  </div>
+  <!-- Agregar -->
+  <div class="mb-3 row">
+    <label for="" class="col-sm-3 col-form-label">Agregar</label>
+    <div class="col-sm-9">
+
+      <div class="input-group">
+
+        <input type="text" class="form-control" placeholder="Agregar favorito">
+        <button class="btn btn-outline-primary" type="button">
+          Agregar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-primary float-end" (click)="save()" [disabled]="miFormulario.invalid">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+
+</form>
