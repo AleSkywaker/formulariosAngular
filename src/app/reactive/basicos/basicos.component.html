@@ -1,1 +1,70 @@
-<p>Reactive basicos works</p>
+<h2>Reactive: Básicos</h2>
+<hr>
+
+<!-- campo de producto -->
+<div class="row">
+  <div class="col">
+
+    <form autocomplete="off" [formGroup]="miFormulario">
+      <!-- Producto -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label"> Producto </label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" placeholder="Producto" formControlName="nombre">
+          <span class="form-text text-danger">Debe ser de 3
+            letras</span>
+        </div>
+      </div>
+      <!-- Precio -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label"> Precio </label>
+        <div class="col-sm-9">
+          <input type="number" name="precio" class="form-control" formControlName="precio" placeholder="Precio">
+          <span class="form-text text-danger">El precio debe ser superior a 0</span>
+        </div>
+      </div>
+      <!-- Existencias -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label"> Existencias </label>
+        <div class="col-sm-9">
+          <input type="text" name="existencias" class="form-control" placeholder="Existencias"
+            formControlName="existencias">
+        </div>
+      </div>
+      <!-- button -->
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary float-end">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <span>Valid</span>
+    <pre>{{miFormulario.valid}}</pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <span>Pristine</span>
+    <pre>{{miFormulario.pristine}}</pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <span>Touch</span>
+    <pre>{{miFormulario.touched}}</pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <span>Value</span>
+    <pre>{{miFormulario.value | json}}</pre>
+  </div>
+</div>
